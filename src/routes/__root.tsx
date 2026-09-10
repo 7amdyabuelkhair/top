@@ -80,11 +80,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "توب ترست للمنتجات المعدنية | Top Trust Metal Products" },
+      { title: "توب تراست للمنتجات المعدنية | Top Trust Metal Products" },
       {
         name: "description",
         content:
-          "Top Trust — importing and exporting ferro alloys, carburisers, virgin metals, minerals, ores and refractories for steelmaking and foundry operations.",
+          "توب تراست | Top Trust — importing and exporting ferro alloys, carburisers, virgin metals, minerals, ores, refractories, steel products and cement.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -95,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap",
       },
       { rel: "icon", href: `${import.meta.env.BASE_URL}logo.svg`, type: "image/svg+xml" },
     ],
