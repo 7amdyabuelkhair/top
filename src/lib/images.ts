@@ -18,20 +18,20 @@ export const images = {
     carbourisers: withBase(
       "https://images.unsplash.com/photo-1560713269-4e9527797b8f?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D",
     ),
-    "nodulizers-inoculants": withBase(
-      "https://images.unsplash.com/photo-1697281679321-a9ce55ce0a8f?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D",
-    ),
     "virgin-metals": withBase(
-      "https://images.unsplash.com/photo-1726805868119-2520c00ab432?q=80&w=890&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1726805868119-2520c00ab432?q=80&w=890&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ),
     "minerals-ores": withBase(
-      "https://images.unsplash.com/photo-1711012604128-8339024a3e12?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1711012604128-8339024a3e12?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ),
     refractories: withBase(
-      "https://images.unsplash.com/photo-1613970351372-9804e380bd09?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1613970351372-9804e380bd09?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     ),
-    others: withBase(
-      "https://images.unsplash.com/photo-1560713269-4e9527797b8f?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D",
+    "steel-products": withBase(
+      "https://images.unsplash.com/photo-1697698532634-ea59b636ccea?fm=jpg&q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0",
+    ),
+    cements: withBase(
+      "https://plus.unsplash.com/premium_photo-1683121530725-e9ddd6c74ef1?fm=jpg&q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0",
     ),
   },
 } as const;
