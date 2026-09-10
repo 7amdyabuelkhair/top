@@ -10,11 +10,11 @@ import { images } from "@/lib/images";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "توب ترست للمنتجات المعدنية | Top Trust Metal Products" },
+      { title: "توب تراست للمنتجات المعدنية | Top Trust Metal Products" },
       {
         name: "description",
         content:
-          "Top Trust: importing and exporting ferro alloys, carburisers, virgin metals, minerals, ores and refractories for steelmaking and foundries.",
+          "Top Trust: importing and exporting ferro alloys, carburisers, virgin metals, minerals, ores, refractories, steel products and cement for steelmaking and industrial projects.",
       },
       { property: "og:title", content: "Top Trust Metal Products" },
       {
