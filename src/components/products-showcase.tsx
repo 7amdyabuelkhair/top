@@ -17,7 +17,9 @@ export function ProductsShowcase({ compact = false, showHeader = true }: Props) 
   const [active, setActive] = useState(0);
   const Arrow = lang === "ar" ? ArrowLeft : ArrowRight;
   const product = t.products[active];
+  const isCements = product?.slug === "cements";
   if (!product) return null;
+  const productExtras = product as { subheading?: string; subdescription?: string };
 
   return (
     <section className={compact ? "" : "mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-24"}>
@@ -68,7 +70,7 @@ export function ProductsShowcase({ compact = false, showHeader = true }: Props) 
           >
             <img
               src={productImageMap[product.slug]}
-              alt={product.name}
+              alt={`${product.name} — ${t.brand}`}
               loading="lazy"
               width={1024}
               height={768}
@@ -85,8 +87,18 @@ export function ProductsShowcase({ compact = false, showHeader = true }: Props) 
 
           <div className="flex flex-col justify-center gap-5 p-7 lg:p-10">
             <p className="text-xs font-bold tracking-widest text-primary uppercase">{product.spec}</p>
-            <p className="text-sm leading-relaxed text-muted-foreground">{product.long}</p>
-            <p className="text-xs text-muted-foreground">{t.productsSection.note}</p>
+            {productExtras.subheading && (
+              <div>
+                <h3 className="font-display text-xl font-bold">{productExtras.subheading}</h3>
+                {productExtras.subdescription && (
+                  <p className="mt-1 text-sm text-muted-foreground">{productExtras.subdescription}</p>
+                )}
+              </div>
+            )}
+            {product.long && <p className="text-sm leading-relaxed text-muted-foreground">{product.long}</p>}
+            {!(isCements && lang === "en") && (
+              <p className="text-xs text-muted-foreground">{t.productsSection.note}</p>
+            )}
 
             <ul className="grid max-h-[360px] gap-2 overflow-y-auto pe-2 sm:grid-cols-2">
               {product.items.map((item) => (
@@ -134,7 +146,7 @@ export function ProductsShowcase({ compact = false, showHeader = true }: Props) 
               <div className="aspect-[16/10] overflow-hidden bg-surface">
                 <img
                   src={productImageMap[p.slug]}
-                  alt={p.name}
+                  alt={`${p.name} — ${t.brand}`}
                   loading="lazy"
                   width={640}
                   height={400}
