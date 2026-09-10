@@ -38,8 +38,8 @@
   --color-ember-foreground: var(--ember-foreground);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --font-display: "Tajawal", "Inter", sans-serif;
-  --font-body: "IBM Plex Sans Arabic", "Inter", sans-serif;
+  --font-display: "Cairo", "Inter", sans-serif;
+  --font-body: "Cairo", "Inter", sans-serif;
 }
 
 :root {
