@@ -4,24 +4,43 @@ import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import { useLang, productImageMap } from "@/lib/lang";
 import { content, productSlugs } from "@/lib/site-content";
 
+const siteUrl = "https://toptrustco.com";
+
 export const Route = createFileRoute("/products/$slug")({
   loader: ({ params }) => {
     if (!productSlugs.includes(params.slug as (typeof productSlugs)[number])) throw notFound();
     const ar = content.ar.products.find((p) => p.slug === params.slug)!;
     const en = content.en.products.find((p) => p.slug === params.slug)!;
-    return { arName: ar.name, enName: en.name, enDesc: en.desc };
+    return { arName: ar.name, enName: en.name, arDesc: ar.desc, enDesc: en.desc };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) {
       return { meta: [{ title: "Product not found" }, { name: "robots", content: "noindex" }] };
     }
     const title = `${loaderData.arName} | ${loaderData.enName} — Top Trust Metal Products`;
+    const description = `${loaderData.arDesc} ${loaderData.enDesc}`;
+    const productUrl = `${siteUrl}/products/${params.slug}`;
     return {
       meta: [
         { title },
-        { name: "description", content: loaderData.enDesc },
+        { name: "description", content: description },
         { property: "og:title", content: title },
-        { property: "og:description", content: loaderData.enDesc },
+        { property: "og:description", content: description },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: loaderData.enName,
+            alternateName: loaderData.arName,
+            description,
+            image: productImageMap[params.slug],
+            url: productUrl,
+            brand: { "@type": "Brand", name: "Top Trust" },
+          }),
+        },
       ],
     };
   },
@@ -36,6 +55,10 @@ function ProductDetail() {
 
   const product = t.products.find((p) => p.slug === slug);
   if (!product) return null;
+  const productExtras = product as typeof product & {
+    subheading?: string;
+    subdescription?: string;
+  };
   const others = t.products.filter((p) => p.slug !== slug);
 
   return (
@@ -53,7 +76,17 @@ function ProductDetail() {
               {product.spec}
             </span>
             <h1 className="mt-3 font-display text-3xl font-black sm:text-5xl">{product.name}</h1>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground">{product.long}</p>
+            {productExtras.subheading && (
+              <div className="mt-5">
+                <h2 className="font-display text-xl font-bold">{productExtras.subheading}</h2>
+                {productExtras.subdescription && (
+                  <p className="mt-1 text-sm text-muted-foreground">{productExtras.subdescription}</p>
+                )}
+              </div>
+            )}
+            {product.long && (
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground">{product.long}</p>
+            )}
             <Link
               to="/contact"
               className="cta-brand shadow-ember mt-8 inline-flex items-center gap-2 rounded-sm px-6 py-3 text-sm font-bold transition-transform hover:-translate-y-0.5"
@@ -63,7 +96,7 @@ function ProductDetail() {
           </div>
           <img
             src={productImageMap[product.slug]}
-            alt={product.name}
+            alt={`${product.name} — ${t.brand}`}
             width={1024}
             height={768}
             className="shadow-card aspect-[4/3] w-full rounded-sm border border-border object-cover"
@@ -119,7 +152,7 @@ function ProductDetail() {
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={productImageMap[p.slug]}
-                    alt={p.name}
+                    alt={`${p.name} — ${t.brand}`}
                     loading="lazy"
                     width={1024}
                     height={768}
