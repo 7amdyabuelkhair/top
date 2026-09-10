@@ -23,6 +23,9 @@ export function LangProvider({ children }: { children: ReactNode }) {
     localStorage.setItem("lang", lang);
     document.documentElement.lang = lang;
     document.documentElement.dir = content[lang].dir;
+    document.title = content[lang].seo.title;
+    const description = document.querySelector('meta[name="description"]');
+    if (description) description.setAttribute("content", content[lang].seo.description);
   }, [lang]);
 
   const value: LangContextValue = {
