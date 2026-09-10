@@ -178,7 +178,7 @@ export const content = {
       },
       {
         slug: "steel-products",
-        name: "منتجات الصلب",
+        name: "STEEL PRODUCTS",
         categoryEn: "Steel Products",
         spec: "6 steel products",
         desc: "منتجات الصلب والخردة لتلبية احتياجات المصانع والمشروعات الصناعية.",
@@ -201,7 +201,7 @@ export const content = {
       },
       {
         slug: "cements",
-        name: "الأسمنت",
+        name: "CEMENTS",
         categoryEn: "Cements",
         spec: "10 cement products",
         subheading: "أنواع الأسمنت",
