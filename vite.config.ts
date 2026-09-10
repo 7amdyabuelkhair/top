@@ -11,7 +11,7 @@ const isGitHubPages = process.env.GITHUB_PAGES === "true";
 export default defineConfig({
   vite: isGitHubPages
     ? {
-        base: "/top-trust/",
+        base: "/",
       }
     : undefined,
   nitro: isGitHubPages ? false : undefined,
