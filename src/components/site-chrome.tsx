@@ -254,13 +254,14 @@ className="block font-semibold transition-colors hover:text-primary"
 <span>
 Developed By{" "}
 <a
-href="https://7amdyabuelkhair.github.io/hamdy-portofolio/"
-target="_blank"
-rel="noopener noreferrer"
-className="transition-colors hover:text-primary"
+  href="https://7amdyabuelkhair.github.io/hamdy-portofolio/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#ef491f] underline transition-colors hover:text-primary"
 >
-Hamdy Abu El-Khair
+  Hamdy Abu El-Khair
 </a>
+  
 </span></div>
 </div>
 </footer>
